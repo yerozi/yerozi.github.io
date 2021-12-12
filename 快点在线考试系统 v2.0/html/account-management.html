@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>账号管理</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../css/account-management.css">
+	<script type="text/javascript" src="../js/account-management.js"></script>
+</head>
+<body>
+	<div>
+		<div class="navigation">
+			<ul>
+				<li>
+					<button onclick="showStudentsPrivilege()";>学生权限</button>
+				</li>
+				<li>
+					<button onclick="showStudentsId()";>学生账号</button>
+				</li>
+				<li>
+					<button onclick="showBaseMsg()";>基本信息</button>
+				</li>
+			</ul>
+			<button id="search_btn">搜索</button>
+			<input type="text" placeholder="请输入学生姓名、学号、班级、专业" name="" id="search" value="" />
+		</div>
+		<div class="base_msg" id="b_g" >
+			<ul>
+				<li>学生总人数：1351人</li>
+				<li>已登录：146人</li>
+				<li>正在考试人数：93人</li>
+				<li>登录异常：0</li>
+				<li>操作异常：0</li>
+			</ul>
+		</div>
+		<div class="stu_users" id="s_u">
+			<div class="funcyusa">
+				<ul>
+					<li>
+						<form class="all_select">
+							<input type="checkbox" id="ck" onclick="checkAll_stuUsers(this)" />
+							全选
+						</form>
+					</li>
+					<li><button>删除</button></li>
+					<li><button>修改</button></li>
+					<li><button>csv导入</button></li>
+					<li><button>添加</button></li>
+				</ul>
+			</div>
+			<table class="users_table" cellpadding="0" cellspacing="0">
+				<tr id="tr_h">
+					<td>选中</td>
+					<td>序号</td>
+					<td>学号</td>
+					<td>姓名</td>
+					<td>性别</td>
+					<td>学院</td>
+					<td>班级</td>
+					<td>所属组</td>
+					<td>密码</td>
+					<td>更多</td>
+					<td>备注</td>
+				</tr>
+			</table>
+			<div id="user_page">
+			</div>
+		</div>
+		<div class="stu_privilege" id="s_p">
+			<div class="funcyusa">
+				<ul>
+					<li>
+						<form class="all_select">
+							<input type="checkbox" id="ck_p" onclick="checkAll(this)" />
+							全选
+						</form>
+					</li>
+					<li><button>移除</button></li>
+					<li><button>赋予</button></li>
+					<li><button>移除全部权限</button></li>
+					<li><button>赋予全部权限</button></li>
+				</ul>
+			</div>
+			<table class="stu_privilege_table" cellspacing="0" cellpadding="0">
+				<tr>
+					<td>选中</td>
+					<td>序号</td>
+					<td>学号</td>
+					<td>姓名</td>
+					<td>登录</td>
+					<td>查看题库</td>
+					<td>修改个人信息</td>
+					<td>考试</td>
+					<td>更多</td>
+					<td>备注</td>
+				</tr>
+				<tr>
+					<td><input name="good_p" type="checkbox" value="" /></td>
+					<td>00001</td>
+					<td>1234567891</td>
+					<td>goodx</td>
+					<td>1</td>
+					<td>0</td>
+					<td>0</td>
+					<td>1</td>
+					<td>详情</td>
+					<td>无</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

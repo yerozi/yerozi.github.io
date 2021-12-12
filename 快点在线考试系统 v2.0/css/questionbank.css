@@ -1,0 +1,56 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+body {
+	background-color: #e3e3e3;
+}
+/* 头部 */
+
+header {
+	width: 100%;
+	height: 45px;
+	background-color: #3399f0;	/*导航背景颜色*/
+	position: absolute;
+	left: 0%;
+}
+div {
+	width: 100%;
+	height: 45px;
+	background-color: #3399f0;
+}
+div ul li {
+	list-style: none;
+	display: block;
+	width: 75px;
+	height: 30px;
+	margin-left: 5px;
+	margin-top: 7.5px;
+	background-color: #7ebc59;
+	font-size: 14px;
+	text-align: center;
+	line-height: 30px;
+	float: left;
+	transition: 0.3s;
+}
+div ul li a {
+	color: #fff;
+	text-decoration: none;
+}
+div ul li:hover {
+	background-color: #FF3B1D;	/* 鼠标悬停背景颜色*/
+	font-size: 16px;
+	font-weight: 900;
+}
+
+/* iframe框架 */
+iframe {
+	width: 96%;
+	margin-left: 2%; /* iframe框架的边距 */
+	margin-top: 70px;
+	border: 0;
+}
+
+
+
+

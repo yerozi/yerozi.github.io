@@ -1,0 +1,18 @@
+.dump_top {
+	color: #000;
+	text-decoration: none;
+}
+.dump_top button {
+	width: 50px;
+	height: 30px;
+	background: #f1404b;
+	border: 0px;
+	position: fixed;
+	right: 40px;
+	bottom: 40px;
+	transition: 1s;
+}
+.dump_top button:hover {
+	height: 30px;
+	background: #f1404b;
+}

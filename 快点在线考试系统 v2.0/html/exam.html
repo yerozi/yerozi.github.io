@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../css/exam.css">
+	<link rel="stylesheet" type="text/css" href="../css/dump_top.css">
+	<script type="text/javascript" src="../js/exam-readpaper.js"></script>
+	<script src="../js/paper.js"></script>
+	<script src="../js/exam.js"></script>
+
+</head>
+<body>
+
+	<button class="do_paper" id="do_paper" onclick="doPaper(this);countTime(this);hidThis(this);">开始</button>
+	<div class="exam_paper">
+			<h1>2021小测试</h1>
+	</div>
+	<div id="exam_contents">
+		<div class="time_meter" id="time_meter">
+			<h5>剩余时间：<span id="minutes"></span>:<span id="second"></span></h5>
+		</div>
+		<div class="tips">
+			<h4>温馨提醒：这份试卷与其说是考试题，不如说是展示自我、发挥特长的舞台，相信你能自主、自信地完成这份答卷。加油！</h4>
+		</div>
+		<!-- 有序列表---单选 -->
+		<div class="single_choice">
+			<h3>一、单选题（每题5分，共15分）：</h3>
+			<ol>
+				<li>
+					<span>下列句子中，家电的熟语使用正确的一项是：</span>
+					<label class="intput_active"><input type="radio" name="single_choice-1" value="A">A．十八大召开前，媒体上谈论改革的声音不绝如缕，这表明人们对国家未来发展的关注。</label>
+					<label class="intput_active"><input type="radio" name="single_choice-1" value="B">B．在这次研讨会上，他作为经理首先发言，看上去是说一件比较普通的事，但是大家都知道他是有特指的，真是项庄舞剑，意在沛公啊！</label>
+					<label class="intput_active"><input type="radio" name="single_choice-1" value="C">C．这是一家国家级的出版社，近几年来，出版了很多深受读者尤其是在校大学生喜爱的精品图书，不少作家对它趋之若鹜。</label>
+					<label class="intput_active"><input type="radio" name="single_choice-1" value="D">D．莫言小时候生活在山东农村，他热爱家乡一草一木，现在他虽然生活在城市了，可是情随事迁，家乡的一切仍让他魂牵梦萦。</label>
+				</li>
+				<li>
+					<span>下列各句中，没有语病的一项是：</span>
+					<label class="intput_active"><input type="radio" name="single_choice-2" value="A">A．我们不能否认浅阅读的作用，移动互联网技术至少使得有人低头看书了，现在我们应当树立多层次的阅读观，倡导自由阅读，广泛阅读。</label>
+					<label class="intput_active"><input type="radio" name="single_choice-2" value="B">B．进人高中之后，部分学生借口以学业负担过重、学习压力过大为名，成天沉溺于题海之中，几乎放弃了必要的课外阅读。</label>
+					<label class="intput_active"><input type="radio" name="single_choice-2" value="C">C．2015年11月30日《芈月传》在北京卫视首播当日CSM34的平均收视率高达1．97%以上，排名同时段全国第一名，观众构成中，25-34岁的年轻观众占比最高。</label>
+					<label class="intput_active"><input type="radio" name="single_choice-2" value="D">D．在充满现代生活气息的今天，春节民俗依然活跃在全球华人中间，它已是华人世界最具代表性的文化符号，也是促进民族文化认同的节日。</label>
+				</li>
+				<li>
+					<span>下列有关文化常识的解说，不正确的一项是：</span>
+					<label class="intput_active"><input type="radio" name="single_choice-3" value="A">A．古代计算时间以地支分为12时辰，“人定”是指“子时”，相当于现在21点到23点。</label>
+					<label class="intput_active"><input type="radio" name="single_choice-3" value="B">B．朱自清，字佩弦，号秋实。现代著名散文家、民主战士。主要作品有：诗文集《踪迹》，散文集《背影》《欧游杂记》等。</label>
+					<label class="intput_active"><input type="radio" name="single_choice-3" value="C">C．郁达夫，现代著名小说家、散文家，曾经组织“创造社”。小说《春风沉醉的晚上》和《薄奠》代表了他创作发展的高峰。</label>
+					<label class="intput_active"><input type="radio" name="single_choice-3" value="D">D．《游褒禅山记》出自《临川先生文集》，作者王安石是唐宋八大家之一，主张文章“务为有补于世”。</label>
+				</li>
+			</ol>
+		</div>
+
+		<!-- 多选 -->
+		<div class="multiple_choice">
+			<h3>二、多选题（全部选对才得分，漏选、少选均不得分。每题10分，共20分）：</h3>
+			<ol>
+				<li>
+					<span>According to the passage, Elias Howe was________.</span>
+					<label class="intput_active"><input type="checkbox" name="multiple_choice-1" value="A">A. the first person we know of who solved problems in his sleep</label>
+					<label class="intput_active"><input type="checkbox" name="multiple_choice-1" value="B">B. much more hard-working than other inventors</label>
+					<label class="intput_active"><input type="checkbox" name="multiple_choice-1" value="C">C. the first person to design a sewing machine that really worked</label>
+					<label class="intput_active"><input type="checkbox" name="multiple_choice-1" value="D">D. the only person at the time who knew the value of dreams</label>
+				</li>
+				<li>
+					<span>The problem Howe was trying to solve was________.</span>
+					<label class="intput_active"><input type="checkbox" name="multiple_choice-2" value="A">A. what kind of thread to use</label>
+					<label class="intput_active"><input type="checkbox" name="multiple_choice-2" value="B">B. how to design a needle which would not break</label>
+					<label class="intput_active"><input type="checkbox" name="multiple_choice-2" value="C">C. where to put the needle</label>
+					<label class="intput_active"><input type="checkbox" name="multiple_choice-2" value="D">D. how to prevent the thread from getting caught around the needle</label>
+				</li>
+			</ol>
+		</div>
+
+		<!-- 判断题 -->
+		<div class="judge">
+			<h3>三、判断题（每题5分，共15分）：</h3>
+			<ol>
+				<li>
+					<span>郡县制开始于秦朝。</span>
+					<label class="intput_active"><input type="radio" name="judge-1" value=1>对</label>
+					<label class="intput_active"><input type="radio" name="judge-1" value=0>错</label>
+				</li>
+				<li>
+					<span>工业并非一值占据主导地位。</span>
+					<label class="intput_active"><input type="radio" name="judge-2" value=1>对</label>
+					<label class="intput_active"><input type="radio" name="judge-2" value=0>错</label>
+				</li>
+				<li>
+					<span>老子是道教的创始人。</span>
+					<label class="intput_active"><input type="radio" name="judge-3" value=1>对</label>
+					<label class="intput_active"><input type="radio" name="judge-3" value=0>错</label>
+				</li>
+			</ol>
+		</div>
+
+		<!-- 填空题 -->
+		<div class="full_space">
+			<h3>四、填空题（每题10分，共20分）：</h3>
+			<ol>
+				<li>
+					<span>利用<input class="int1" type="text" name="fullSpace-1" autocomplete="off">可以测距离。</span>
+				</li>
+				<li>
+					<span>可听声：频率在<input class="int1" type="text" name="fullSpace-2" autocomplete="off">之间的声波。</span>
+				</li>
+			</ol>
+		</div>
+
+		<!-- 简答题 -->
+		<div class="short_answer">
+			<h3>五、简答题（每题15分，共30分）：</h3>
+			<ol>
+				<li>
+					<span>请默写《琵琶行》倒数第二段：</span>
+					<label><textarea></textarea></label>
+				</li>
+				<li>
+					<span>请默写《出师表》第一段：</span>
+					<label><textarea></textarea></label>
+				</li>
+			</ol>
+		</div>
+		<br>
+		<hr>
+		ADC;BC、AD;错、对、错;尺子、;20-20000;琵琶行;出师表 
+		<!-- 交卷 -->
+		<div>
+			<button type="submit" class="hand_in" onclick="countScore();stopCountTime();getQuestionList();">交卷</button>
+		</div>
+	</div>
+	<div id="otherQuestions">
+		<div id="paper2">
+			
+		</div>
+	</div>
+	<a href="javascript:;" class="dump_top" id="backTop"><button>&and;</button></a>
+	<!-- <button onclick="getQuestionList();">点我</button> -->
+</body>
+</html>

@@ -1,0 +1,391 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <style>
+    	* {
+    		margin: 0px;
+    		padding: 0px;
+    	}
+    	/*h1 {
+    		margin: 15px 0px 15px 25px;
+    	}*/
+    	.navigation,.contents {
+    		margin-top: 20px;
+    	}
+
+    	.navigation {
+    		width: 15%;
+    		background-color: #dee1e6;
+    		margin-left: 2.5%;
+    		float: left;
+    	}
+    	.navigation span {
+    		display: block;
+    		width: 100%;
+    		height: 45px;
+    		font-weight: 900;
+    		line-height: 45px;
+    		text-align: center;
+    		transition: 0.2s;
+    	}
+    	.navigation ul {
+    		display: none;
+    	}
+    	.navigation ul li {
+    		list-style: none;
+    		display: block;
+    		width: 100%;
+    		height: 35px;
+    		line-height: 35px;
+    		text-align: center;
+    		transition: 0.2s;
+    	}
+    	.navigation ul li:hover,.navigation span:hover {
+    		background-color: #a39e9e;
+    		font-weight: 900;
+    		font-size: 20px;
+    		/*margin-left: 15px;*/
+    	}
+
+
+
+    	.contents {
+    		float: right;
+    		width: 75%;
+    		margin-right: 5%;
+    	}
+    	.contents div {
+    		height: 515px;
+    		border: 1px solid black;
+    		border-radius: 10px;
+    		box-shadow: 0px 0px 20px #c1c1c1;
+    		margin-bottom: 30px;
+    		border: 1px solid #abb1ba;
+    	}
+    	p {
+    		padding-left: 15px;
+    		padding-right: 15px;
+    		height: 50px;
+    		line-height: 50px;
+    	}
+
+    	.contents ul li {
+    		display: block;
+    		width: 100%;
+    		height: 35px;
+    		line-height: 35px;
+    		font-size: 14px;
+    		/*margin-left: 15px;*/
+    		margin-right: 15px;
+    		transition: 0.3s;
+    	}
+    	.contents ul li:hover {
+    		background-color: #e1e0e7;
+    	}
+    	input {
+    		margin-left: 15px;
+    	}
+    	.do {
+    		width: 14px;
+    	}
+    	.other {
+    		width: 14px;
+    		height: 14px;
+    		line-height: 14px;
+    		margin-top: 10px;
+    		margin-right: 20px;
+    		float: right;
+    		transition: 0.3s;
+    	}
+    	.other:hover {
+    		width: 16px;
+    		height: 16px;
+    	}
+
+
+    	li a {
+    		display: block;
+    		width: 100%;
+    		height: 35px;
+    		border: 0px solid;
+    		border-radius: 10px;
+    		text-decoration: none;
+    		text-align: center;
+    		box-sizing: border-box;
+    		transition: 0.3s;
+    	}
+    	li a:visited,li a:link,li a:active {
+    		color: #587498;
+    	}
+    	li a:nth-child(n+2):hover {
+    		background: #dddfe6;
+    		font-size: 16px;
+    		font-weight: 900;
+    	}
+    	
+
+    </style>
+</head>
+<body>
+    <!-- <h1>日志与警告</h1> -->
+    <div class="navigation">
+    	<div onclick="showMonth(this)">
+    		<span>2021</span>
+    		<ul>
+    			<li>12月</li>
+    			<li>11月</li>
+    			<li>10月</li>
+    			<li>9月</li>
+    			<li>8月</li>
+    			<li>7月</li>
+    			<li>6月</li>
+    			<li>5月</li>
+    			<li>4月</li>
+    			<li>3月</li>
+    			<li>2月</li>
+    			<li>1月</li>
+    		</ul>
+    	</div>
+    	<div onclick="showMonth(this)">
+    		<span>2020</span>
+    		<ul>
+    			<li>12月</li>
+    			<li>11月</li>
+    			<li>10月</li>
+    			<li>9月</li>
+    			<li>8月</li>
+    			<li>7月</li>
+    			<li>6月</li>
+    			<li>5月</li>
+    			<li>4月</li>
+    			<li>3月</li>
+    			<li>2月</li>
+    			<li>1月</li>
+    		</ul>
+    	</div>
+    	<div onclick="showMonth(this)">
+    		<span>2019</span>
+    		<ul>
+    			<li>12月</li>
+    			<li>11月</li>
+    			<li>10月</li>
+    			<li>9月</li>
+    			<li>8月</li>
+    			<li>7月</li>
+    			<li>6月</li>
+    			<li>5月</li>
+    			<li>4月</li>
+    			<li>3月</li>
+    			<li>2月</li>
+    			<li>1月</li>
+    		</ul>
+    	</div>
+    </div>
+    <div class="contents">
+    	<div>
+    		<p></p>
+    		<hr>
+    		<ul>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/1.svg">&nbsp;&nbsp;罗嘉文已经签到<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/2.svg">&nbsp;&nbsp;刘永波已经签到<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/3.svg">&nbsp;&nbsp;罗嘉文已登录<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/4.svg">&nbsp;&nbsp;罗嘉文密码输入错误<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/5.svg">&nbsp;&nbsp;刘永波已经登录<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/6.svg">&nbsp;&nbsp;罗诗朗已经签到<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/1.svg">&nbsp;&nbsp;陈老师发布考试<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/2.svg">&nbsp;&nbsp;陈老师发布签到<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/3.svg">&nbsp;&nbsp;陈老师创建签到活动<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/4.svg">&nbsp;&nbsp;罗诗朗已登录<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/5.svg">&nbsp;&nbsp;陈老师创建了java题库<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/5.svg">&nbsp;&nbsp;陈老师创建了java题库<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/5.svg">&nbsp;&nbsp;陈老师创建了java题库<img class="other" src="../image/other.svg"></li>
+    		</ul>
+    	</div>
+    	<div>
+    		<p></p>
+    		<hr>
+    		<ul>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/1.svg">&nbsp;&nbsp;罗嘉文已经签到<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/2.svg">&nbsp;&nbsp;刘永波已经签到<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/3.svg">&nbsp;&nbsp;罗嘉文已登录<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/4.svg">&nbsp;&nbsp;罗嘉文密码输入错误<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/5.svg">&nbsp;&nbsp;刘永波已经登录<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/6.svg">&nbsp;&nbsp;罗诗朗已经签到<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/1.svg">&nbsp;&nbsp;陈老师发布考试<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/2.svg">&nbsp;&nbsp;陈老师发布签到<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/3.svg">&nbsp;&nbsp;陈老师创建签到活动<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/4.svg">&nbsp;&nbsp;罗诗朗已登录<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/5.svg">&nbsp;&nbsp;陈老师创建了java题库<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/5.svg">&nbsp;&nbsp;陈老师创建了java题库<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/5.svg">&nbsp;&nbsp;陈老师创建了java题库<img class="other" src="../image/other.svg"></li>
+    		</ul>
+    	</div>
+    	<div>
+    		<p></p>
+    		<hr>
+    		<ul>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/1.svg">&nbsp;&nbsp;罗嘉文已经签到<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/2.svg">&nbsp;&nbsp;刘永波已经签到<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/3.svg">&nbsp;&nbsp;罗嘉文已登录<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/4.svg">&nbsp;&nbsp;罗嘉文密码输入错误<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/5.svg">&nbsp;&nbsp;刘永波已经登录<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/6.svg">&nbsp;&nbsp;罗诗朗已经签到<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/1.svg">&nbsp;&nbsp;陈老师发布考试<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/2.svg">&nbsp;&nbsp;陈老师发布签到<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/3.svg">&nbsp;&nbsp;陈老师创建签到活动<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/4.svg">&nbsp;&nbsp;罗诗朗已登录<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/5.svg">&nbsp;&nbsp;陈老师创建了java题库<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/5.svg">&nbsp;&nbsp;陈老师创建了java题库<img class="other" src="../image/other.svg"></li>
+    			<li><input type="checkbox" name="selects" />&nbsp;<span class="times"></span>&nbsp;<img class="do" src="../image/5.svg">&nbsp;&nbsp;陈老师创建了java题库<img class="other" src="../image/other.svg"></li>
+    		</ul>
+    	</div>
+    </div>
+
+    <script>
+    	var time = new Date();
+    	console.log(time.getFullYear());
+    	console.log(time.getMonth() + 1);
+    	console.log(time.getDay());
+    	// setInterval(function(){ },1000);
+    	function showMonth(itself){
+    		var flag = 0;
+    		var ul = itself.getElementsByTagName('ul')[0];
+    		if (flag % 2 ==1 ) {
+    			// flag = flag + 1;
+    			ul.style.display = "none";
+    		}
+    		else {
+    			// flag = flag + 1;
+    			ul.style.display = "block";
+
+    		}
+    	}
+
+    	// 日志
+    	{
+    		// 每块日志添加时间
+    		// 获取p标签
+    		var ps = document.getElementsByTagName('p'); //3
+    		// console.log(ps.length);
+
+    		// 获取星期
+			var weekday=new Array(7)
+			weekday[0] = "星期日";
+			weekday[1] = "星期一";
+			weekday[2] = "星期二";
+			weekday[3] = "星期三";
+			weekday[4] = "星期四";
+			weekday[5] = "星期五";
+			weekday[6] = "星期六";
+
+    		// 添加时间进p标签
+    		for (var i = 0 ; i < ps.length ; i++){
+    			ps[i].innerHTML = time.getFullYear() + "年" + (time.getMonth() + 1) + "月" + (time.getDay() - i)+ "日 " + (weekday[time.getDay() - i]);
+    		}
+    	}
+
+    	{
+    		var labels = document.getElementsByTagName('label');
+	    	for(var i = 0 ; i < labels.length ; i++){
+	    		labels[i].onclick = function(){
+	    			labels[i].content = "\\2714";
+	    		}
+	    	}
+	    	var times = document.getElementsByClassName('times');
+	    	console.log(times.length);
+	    	var h1,m1;
+    		h1 = time.getHours();
+    		m1 = time.getMinutes();
+	    	for(var j = 0 ; j < times.length ; j++){
+	    		m1 -= 1;
+	    		if (m1 - j < 0 && m1 < 0){
+	    			m1 = 59;
+	    		}
+	    		// 复选框后面的时间
+	    		times[j].innerHTML = del1(time.getHours(),add0(m1)) + ":" + add0(m1);
+	    		
+	    	}
+	    	var b;
+	    	function del1(del1,m2){
+	    		del1 = del1;
+	    		del2 = del1;
+	    		b = 0;
+	    		if (m2 == 0 && m2 < 10){
+	    			del1 -= 1;
+	    			b = b + 1;
+	    			return del1;
+	    		}
+    			if (del1 - del2 < 0){
+    				del1 = 23;
+    				b = 0;
+    				return del1;
+    			}
+    			else {
+    				return del1 - b;
+    			}
+	    			
+	    	}
+	    	function add0(m1){
+	    		m1 = m1;
+	    		if(m1 < 10){
+	    			return "0" + m1;
+	    		}
+	    		else{
+	    			return m1;
+	    		}
+
+	    	}
+    	}
+
+
+    	// 其他按钮（九个点）
+    	var otherDo = document.querySelectorAll(".other");
+    	var content_otherDo = document.querySelector(".contents");
+    	var content_otherDoLi = document.querySelector(".contents div ul li");
+		var ooother = 0;
+    	content_otherDo.onclick = function(a){
+
+    		delooother();
+
+
+    		// 点击显示other
+    		if (a.target.className == "other") {
+    			var delOther = document.createElement("div");
+    			delOther.style.display = "block";
+    			delOther.className = "ooother"
+    			delOther.style.width = "100px";
+    			delOther.style.height = "150px";
+    			delOther.style.background = "#DCDDD8";
+    			delOther.style.position = "absolute";
+    			delOther.style.left = a.pageX - 125 + "px";
+    			delOther.style.top = a.pageY - 10 + "px";
+    			delOther.innerHTML = "<a href='javascript:;'>操作</a>"+
+    									"<a href='javascript:;'>删除</a>"+
+    									"<a href='javascript:;'>操作1</a>"+
+    									"<a href='javascript:;'>操作2</a>";
+    			content_otherDoLi.appendChild(delOther);
+    			ooother = 1;
+    		}
+    		// if (a.target.className != "ooother"){
+    		// 	a.style.display = "none";
+    		// }
+    	}
+    	function delooother(){
+    		// 删除上一次显示的other
+    		if (ooother == 1) {
+	    		var delooother = document.querySelectorAll(".ooother");
+    			console.log(delooother.length);
+	    		for (var i = 0 ; i < delooother.length ; i++){
+	    			content_otherDoLi.removeChild(delooother[i]);
+	    		}
+	    		ooother = 0;
+    		}
+    	}
+
+
+    </script>
+</body>
+</html>

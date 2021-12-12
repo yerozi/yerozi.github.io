@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../css/read-paper.css">
+	<script type="text/javascript" src="../js/exam-readpaper.js"></script>
+</head>
+<body onload="getStuAnswers()">
+	<div class="subjective">
+		<span id="studentName">张三</span>
+
+		<!-- 客观objective -->
+		<h4>客观题:&nbsp;<span id="objective"></span>&nbsp;分</h4>
+		<hr>
+		<h4>主观题：</h4>
+		<div>
+			<form>
+			<ol>
+				<li>
+					<span class="questionList">11</span>
+					<p><b>学生答案：</b><span id="full_space1"></span></p>
+					<br>
+					<label>
+						得分：<input type="number" min="0" max="10" maxlength="2"onmouseout="outMouseOut(this)" required>
+					</label>
+				</li>
+				<br>
+				<hr>
+				<br>
+				<li>
+					<span class="questionList">22</span>
+					<p><b>学生答案：</b><span id="full_space2"></p>
+					<br>
+					<label>
+						得分：<input type="number" min="0" max="10" maxlength="2" onmouseout="outMouseOut(this)" required>
+					</label>
+				</li>
+				<br>
+				<hr>
+				<br>
+				<li>
+					<span class="questionList">33</span>
+					<p><b>学生答案：</b><span id="short_answer1"></p>
+					<br>
+					<label>
+						得分：<input type="number" min="0" max="15" maxlength="2" onmouseout="outMouseOut(this)" required>
+					</label>
+				</li>			
+				<br>
+				<hr>
+				<br>
+				<li>
+					<span class="questionList">44</span>
+					<p><b>学生答案：</b><span id="short_answer2"></p>
+					<br>
+					<label>
+						得分：<input type="number" min="0" max="15" maxlength="2" onmouseout="outMouseOut(this)" required oninvalid="setCustomValidity('不能为空或超出范围！')">
+					</label>
+				</li>
+			</ol>
+			<button type="submit" onclick="getSelfMind();">确认</button>
+		</div>
+		
+			
+		</form>
+	</div>
+</body>
+
+</html>

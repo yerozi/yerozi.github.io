@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<script type="text/javascript" src="../js/ready-do-paper.js"></script>
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		iframe {
+			border: 1px solid #dadada;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<ul class="nav nav-tabs" role="tablist">
+			<li class="nav-item">
+				<a class="nav-link" data-toggle="tab" href="#home">首页</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" data-toggle="tab" href="#exam">2021小测</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="paper-title" data-toggle="tab" href="#exam2"></a>
+			</li>
+		</ul>
+
+		<div class="tab-content">
+			<div id="home" class="container tab-pane active"><br>
+				<h3>现在开始考试吧！</h3>
+				<p><strong class="text-primary">重要：</strong>同一时间段内只能开始一门考试，切换界面考试计时不会暂停！</p>
+				<p><strong class="text-primary">考试注意事项：</strong></p>
+				<p class="text-info"><strong>1、不要作弊。</strong>无论网上考试是否有监考，都不要进行作弊。网上考试也是考试的一种，一旦作弊行为被实锤，当然也会带来严重的后果。诚信考试是很有必要的。
+				<br>
+				<strong>2、在网络环境良好的情况下参与考试。</strong>网上考试是当考生开始进行答题时，系统端的服务器就会执行考试倒计时操作，假如考生网络情况不佳，当然会影响正常考试，但是这种情况下考试时间是不会被暂停的。
+				<br>
+				<strong>3、最好不要使用手机参加考试。</strong>尽管手机能够进行网上考试，但考试过程中有可能来电，从而影响考试。</p>
+				<p class="text-info">考试时使用电脑、手机、平板等任意电子设备登录考试环境(推荐使用电脑，操作方便能够节省考试时间)后正常作答试卷。网上考试的试卷普遍以选择、填空等易于作答的题型为主，而计算、绘图分析等不易作答的题目出现概率比较小。但此类题型的题目并非一定没有，所以最好自备纸笔，假如遇见这种题目可以纸笔作答拍照上传，能够节约时间。</p>
+			</div>
+			<div id="exam" class="container tab-pane fade"><br>
+				<iframe src="exam.html" name="do-exam1" width="100%" height="800px"></iframe>
+			</div>
+			<div id="exam2" class="container tab-pane fade"><br>
+				<iframe src="exam-v2.0.html" name="do-exam2" width="100%" height="800px"></iframe>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	var exam2 = document.getElementById('paper-title');
+	var ItemsArray = localStorage.getItem("ItemsArray_S");
+	ItemsArray = JSON.parse(ItemsArray);
+	if(ItemsArray != null){
+		console.log(ItemsArray["paper_name"]);
+		exam2.innerHTML = "2021 " + ItemsArray["paper_name"] + "<span class='badge badge-light text-danger'>新</span>";
+	}
+
+</script>
+</html>

@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>首页</title>
+	<style>
+		* {
+			margin: 0px;
+			padding: 0px;
+		}
+		div {
+			margin-top: 55px;
+			/*border: 1px solid #a39e9e;*/
+		}
+
+		p {
+			font-size: 18px;
+			font-weight: 900;
+			height: 50px;
+			color: #e6e6e6;
+			background: #716e77;
+			text-align: center;
+			line-height: 50px;
+			border-left: 5px solid red;
+		}
+
+		.def-left {
+			width: 60%;
+			margin-left: 55px;
+			float: left;
+		}
+
+		.def-right {
+			width: 25%;
+			margin-right: 55px;
+			float: right;
+		}
+		.def-right p {
+			margin-bottom: 25px;
+		}
+		ul {
+			width: 100%;
+			/*text-align: center;*/
+			transition: 5s;
+		}
+		ul li {
+			list-style-type: none;
+			height: 50px;
+			line-height: 50px;
+			background: #fff7f7;
+			padding-left: 20px;
+			/*margin-left: 20px;*/
+		}
+		ul li:hover,p:hover {
+			background: #a39391;
+			/*color: #fff;*/
+		}
+	</style>
+</head>
+<body>
+	
+	<div class="def-left">
+		<p id="default-msg">消息通知</p>
+			<ul>
+				<li>考试：云计算系统维护员</li>
+				<li>云计算系统维护员培训第五天签到</li>
+				<li>云计算系统维护员培训第四天签到</li>
+				<li>云计算系统维护员培训第三天签到</li>
+				<li>云计算系统维护员培训第二天签到</li>
+				<li>云计算系统维护员培训第一天签到</li>
+			</ul>
+		<p id="default-thing">待办事项</p>
+			<ul>
+				<li>云计算系统维护员实操测试模拟试卷2</li>
+				<li>云计算系统维护员理论测试模拟试卷2</li>
+				<li>云计算系统维护员实操测试模拟试卷1</li>
+				<li>云计算系统维护员理论测试模拟试卷1</li>
+				<li>考试：云计算系统维护员</li>
+				<li>云计算系统维护员理论作业2</li>
+				<li>云计算系统维护员理论作业1</li>
+				<li>云计算系统维护员理论作业1</li>
+			</ul>
+	</div>
+	<div class="def-right">
+		<p>
+			<b></b>
+		</p>
+		<p onclick="fillClass();">点击输入班级！</p>
+		<p></p>
+		<p></p>
+		<p></p>
+	</div>
+
+
+	<script>
+		function fillClass(){
+				var className = prompt("请输入你的班级：","");
+				document.getElementsByTagName('p')[3].innerHTML = className;
+			}
+		window.onload = function(){
+			document.getElementsByTagName('b')[0].innerHTML = localStorage.getItem("userName");
+			var ps = document.querySelectorAll(".def-right p");
+			ps[2].innerHTML = "总分：" +localStorage.getItem("totleScore");
+			ps[3].innerHTML = "客观题：" + localStorage.getItem("scoreAll");
+			ps[4].innerHTML = "主观题：" + (localStorage.getItem("totleScore") - localStorage.getItem("scoreAll"));
+		}
+	</script>
+
+</body>
+</html>

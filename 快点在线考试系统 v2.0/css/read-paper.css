@@ -1,0 +1,53 @@
+hr {
+	margin-right: 50px;
+}
+
+#studentName {
+	padding-left: 10px;
+	padding-right: 10px;
+	font-weight: 900;
+	color: #403E4E;
+	background: #d4d4dc;
+	border-left: 3px solid #ff2321;
+}
+#objective {
+	color: #FB2A27;
+}
+
+.subjective {
+	margin-top: 20px;
+	margin-left: 50px;
+}
+p {
+	color: #4C6085;
+}
+
+input {
+	outline: none;
+	text-align: center;
+	font-weight: 900;
+	font-size: 18px;
+	color: #63b931;
+	background: rgba(123, 123, 123, 0);
+	width: 50px;
+	height: 30px;
+	border-left: 0px;
+	border-right: 0px;
+	border-top: 0px;
+
+}
+
+body {
+	background: #e3e3e3;
+}
+
+button {
+	width: 10%;
+	height: 35px;
+	margin: 0px auto;
+	border: 0px;
+	border-radius: 15px;
+	background: #0087cb;
+	margin-top: 35px;
+	margin-left: 45%;
+}

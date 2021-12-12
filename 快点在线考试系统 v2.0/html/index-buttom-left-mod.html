@@ -1,0 +1,59 @@
+﻿<html>
+<head>
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+	<style>
+		a {
+			transition: 0.2s;
+		}
+		a:link,a:visited,a:hover {
+			text-decoration: none;
+		}
+		a:hover {
+			font-size: 18px;
+			font-weight: 900;
+		}
+		.bg-b {
+			background: #ebedef;
+		}
+		.bg-a {
+			background: #c7cbd1;
+		}
+		.text-font {
+			color: #72787e;
+		}
+	</style>
+</head>
+<body>
+	<div class="container-fulit">
+		<div class="list-group ">
+			<a href="ready-do-paper.html" target="rightFrame" >答题</a>
+			<a href="ready-do-paper.html" target="rightFrame">模拟考试</a>
+			<a href="statistics.html"  target="rightFrame">统计</a>
+			<a href="read-paper.html" target="rightFrame" >阅卷</a>
+			<a href="questionbank.html" target="rightFrame">题库操作</a>
+			<a href="account-management.html" target="rightFrame">账号管理</a>
+			<a href="log.html" target="rightFrame" >日志与警告</a>
+			<a href="logo.html" target="rightFrame">LOGO</a>
+		</div>
+	</div>
+</body>
+	<script>
+		var as = document.getElementsByTagName('a');
+		for(var i = 0 ; i < as.length ; i++){
+			as[i].setAttribute("class","list-group-item text-font text-center bg-b");
+			as[i].setAttribute("onclick","visitedShow(this);");
+		}
+		function visitedShow(a){
+			for(var i = 0 ; i < as.length ; i++){
+				as[i].setAttribute("class","list-group-item text-font text-center bg-b");
+				if(a.innerHTML == as[i].innerHTML){
+					as[i].setAttribute("class","list-group-item text-font text-center bg-a");
+				}
+			}
+		}
+	</script>
+</html>

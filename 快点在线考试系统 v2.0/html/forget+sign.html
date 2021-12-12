@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style>
+		* {
+			margin: 0px auto;
+		}
+		#forgetPsd {
+			width: 768px;
+			height: 500px;
+			background: rgba(255,255,255,0.65);
+			border-radius: 10px;
+		}
+		#forgetPsd table {
+			width: 768px;
+			border: 0px;
+			border-collapse: collapse;
+		}
+
+		#forgetPsd table th {
+			height: 95px;
+		}
+
+		#forgetPsd table tr {
+			height: 37px;
+		}
+		#forgetPsd table tr td:first-child{
+			width: 200px;
+		}
+		#forgetPsd table tr td:last-child{
+			width: 200px;
+		}
+
+		#forgetPsd table tr td:nth-child(2){
+			line-height: 28px;
+		}
+
+		#findBackAccount td label input,
+		#experPhone td label input,
+		#captcha td label input,
+		#setNewPsd td label input{
+			width: 250px;
+			height: 26px;
+			border: 0px solid #f1404b;
+			color: #505050;
+			background: #b0d9d4;
+			padding-left: 10px;
+			outline: none;
+			border-bottom-left-radius: 10px;
+			border-top-left-radius: 10px;
+		}
+
+
+		#findBackAccount td button,
+		#experPhone td button,
+		#captcha td button,
+		#setNewPsd td button{
+			outline: none;
+			width: 85px;
+			height: 28px;
+			border: 0px solid #dadada;
+			background: #29606b;
+			color: white;
+			border-top-right-radius: 10px;
+			border-bottom-right-radius: 10px;
+		}
+
+		#submitPsd button {
+			outline: none;
+			border: 0px;
+			font-size: 16px;
+			font-weight: 900;
+			width: 100px;
+			height: 35px;
+			color: white;
+			background: #29606b;
+			border-radius: 10px;
+		}
+
+		#testAccountIsExist {
+			font-size: 14px;
+		}
+		#reSendExperNumber {
+			margin-top: 15px;
+			line-height: 37px;
+			background-repeat: no-repeat;
+		}
+	</style>
+</head>
+<body>
+	<!-- 找回密码 -->
+	<div id="forgetPsd">
+	
+		<table>
+			<th colspan="3"><h3>密码找回</h3></th>
+
+			<tr>
+				<td></td>
+				<td>请输入需要找回的账号：</td>
+				<td></td>
+			</tr>
+
+			<!-- 账号验证 -->
+			<tr id="findBackAccount">
+				<td></td>
+				<td><label><input type="text" onblur="testAccountIsExist()"></label><button onclick="testAccountIsExist();">账号检测</button></td>
+				<td id="testAccountIsExist"></td>
+
+			</tr>
+
+			<tr>
+				<td></td>
+				<td>手机号码：</td>
+				<td></td>
+			</tr>
+
+			<!-- 手机号验证 -->
+			<tr id="experPhone">
+				<td></td>
+				<td><label><input type="text" disabled="disabled"></label><button onclick="experPhone()" disabled="disabled">发送验证码</button></td>
+				<td id="reSendExperNumber"></td>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td>验证码</td>
+				<td></td>
+			</tr>
+
+			<!-- 手机号验证码验证 -->
+			<tr id="captcha">
+				<td></td>
+				<td><label><input type="text" disabled="disabled"></label><button onclick="captcha()" disabled="disabled">确定</button></td>
+				<td id="reSendCaptcha"></td>
+			</tr>
+
+
+
+			<tr>
+				<td></td>
+				<td>新密码：</td>
+				<td></td>
+			</tr>
+
+
+			<!-- 密码重置 -->
+			<tr id="setNewPsd">
+				<td></td>
+				<td><label><input type="password" disabled="disabled"></label><button onclick="reSetPsd()" disabled="disabled">密码校对</button></td>
+				<td id="testPsdIsUsed" disabled="disabled"></td>
+			</tr>
+		
+			<th id="submitPsd" colspan="3">
+				<button onclick="submitNewPsd();" disabled="disabled">确定</button>
+			</th>
+		</table>
+	</div>
+</body>
+<script>
+
+
+	// 获取storage的用户数据
+	var ulists = localStorage.getItem("us");
+	// 讲数据类型为String的数据转换成Object类型的数据
+	ulists = JSON.parse(ulists);
+
+	{
+		// 判断用户是否存在！
+		var userNameIndex;
+		var accountsExper = /^[a-zA-Z0-9_-]{4,16}$/;
+		var showAccountExist = document.getElementById('testAccountIsExist');
+		var fbAccount = document.querySelector("#findBackAccount td label input");
+		function testAccountIsExist(){
+			if (accountsExper.test(fbAccount.value) && judgeAccountExist(fbAccount.value)){
+				showAccountExist.innerHTML = "";
+				showAccountExist.style.background = "url(../image/eee.svg)";
+				showAccountExist.style.width = "20px";
+				showAccountExist.style.height = "25px";
+				showAccountExist.style.backgroundRepeat="no-repeat"
+				console.log(typeof fbAccount + " \t" + fbAccount.value);
+
+				// 使手机号码可使用
+				intputNumber.disabled = false;
+				reSendExperNumber.disabled = false;
+			}
+			else {
+				showAccountExist.style.background = "none";
+				showAccountExist.innerHTML = "无法匹配，请从新输入！";
+				console.log("no");
+			}
+		} 
+		function judgeAccountExist(usersId){
+			for (var i = 0 ; i < ulists.user.length ; i++){
+				if (usersId == ulists.user[i]["userId"]){
+					userNameIndex = i;
+					console.log(i);
+					return true;
+				}
+			}
+		}
+	}
+
+	// 判断手机号码是否正确并发送验证码
+	{
+		var numbersExper = /^[0-9]{11}$/;
+		var intputNumber = document.querySelector("#experPhone td label input");
+		var reSendExperNumber = document.querySelector('#experPhone td button');
+		var randomNumber4; //随机生成4位数的数字
+		var temp;
+		var endfun = true;
+		function experPhone(){
+			if (numbersExper.test(intputNumber.value)){
+
+				clearInterval(countClock);
+				endfun = true;
+
+				// 生成4位数字
+				getCaptcha();
+
+				// 使输入验证码可用
+				intputCaptcha.disabled = false;
+				intputCaptchaButton.disabled = false;
+
+				// 发送验证码倒计时
+				countTime();
+			}
+			else {
+				console.log("no");
+			}
+		}
+		function getCaptcha(){
+			temp = Math.floor(Math.random()*10000);
+			randomNumber4 = temp < 1000? temp + 1000 : temp;
+			console.log(randomNumber4);
+		}
+
+		var timeSecoend = 60;
+		var countClock;
+		function countTime(){
+			countClock = setInterval(function(){ 
+				if(endfun){
+					count60();
+				}
+				else {
+
+				} },1000);
+		}
+		function count60(){
+			timeSecoend -= 1;
+			reSendExperNumber.innerHTML = timeSecoend + "s";
+			if (timeSecoend == 57){
+				var tipSended = document.getElementById('reSendExperNumber');
+				tipSended.style.background = "url(../image/fff.svg)";
+				tipSended.style.width = "20px";
+				tipSended.style.height = "25px";
+				tipSended.style.backgroundRepeat="no-repeat"
+			}
+			if (timeSecoend <= 0){
+
+				var rsenbutton = "发送验证码"
+				reSendExperNumber.innerHTML = rsenbutton;
+				endfun = false;
+				timeSecoend = 60;
+			}
+
+		}
+	}
+
+
+	// 验证码captcha判断
+	{
+		var intputCaptcha = document.querySelector("#captcha td label input");
+		var intputCaptchaButton = document.querySelector("#captcha td button");
+		function captcha(){
+			if (intputCaptcha.value == randomNumber4){
+				reSetNewPsd.disabled = false;
+				judgePsdALike.disabled = false;
+				console.log("ok");
+			}
+			else if (intputCaptcha.value == ""){
+				console.log("请填写验证码！");
+			}
+			else {
+				console.log("验证码错误！");
+			}
+		}
+	}
+
+
+	// 设置新密码
+	{
+		var reSetNewPsd = document.querySelector("#setNewPsd td label input");
+		// Alike相同
+		var judgePsdALike = document.querySelector("#setNewPsd td button");
+		function reSetPsd(){
+			if (accountsExper.test(reSetNewPsd.value)){
+				console.log(reSetNewPsd.value);
+				subbutton.disabled = false;
+			}
+			else{
+				console.log("请输入长度大于6小于16的密码！");
+			}
+		}
+	}
+
+	{
+		var subbutton = document.querySelector("#submitPsd button");
+		function submitNewPsd(){
+			ulists.user[userNameIndex]["psd"] = reSetNewPsd.value;
+			localStorage.setItem("us",JSON.stringify(this.ulists));
+			alert("密码设置成功！正在返回登录！");
+		}
+	}
+</script>
+
+</html>

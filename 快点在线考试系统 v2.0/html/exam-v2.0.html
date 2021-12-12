@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="../css/exam-v2.css">
+</head>
+<body>
+	<div class="container">
+		<h3></h3>
+		<p class="text-info">温馨提醒：这份试卷与其说是考试题，不如说是展示自我、发挥特长的舞台，相信你能自主、自信地完成这份答卷。加油！</p>
+	</div>
+	<script>
+		//获取数据
+		var ItemsArray_S = localStorage.getItem("ItemsArray_S");
+		ItemsArray_S = JSON.parse(ItemsArray_S);
+		
+		if(ItemsArray_S != null){
+			window.onload = start_();
+		}
+		function start_(){
+			var container = document.getElementsByClassName('container')[0];
+			var h3 = document.getElementsByTagName('h3')[0];
+
+			//获取数据
+			var ItemsArray_S = localStorage.getItem("ItemsArray_S");
+			ItemsArray_S = JSON.parse(ItemsArray_S);
+
+			h3.innerHTML = "2021 " + ItemsArray_S["paper_name"];
+
+			//整张试卷的题目顺序
+			var paper_count = document.createElement("ol");
+			paper_count.setAttribute("class","list-group paper_count");
+			paper_count.setAttribute("strat","1");
+			paper_count.setAttribute("type","1");
+			// paper_count.setAttribute("!important");
+			//存放题目包括题目和选项
+			var ol_li = document.createElement("li");
+			//题目内容
+			var h6s = document.createElement("h6");
+			// 容纳问题以及选项的容器
+			var ol_li_ol = document.createElement("ol");
+			// 为选项绑定表单事件
+			var ol_li_ol_form = document.createElement("form");
+			//每个问题的选项
+			var ol_li_ol_form_li = document.createElement("li");
+			//为选项绑定焦点事件
+			var ol_li_ol_form_li_label = document.createElement("label");
+			//选项
+			var ol_li_ol_form_li_label_input = document.createElement("input");
+
+			//加载试卷---将paper_count加入container
+			container.appendChild(paper_count);
+			//根据题目数量加载题目---将ol_li加入paper_count
+			for(var i = 0 ; i < ItemsArray_S["questionArray"].length ; i++){
+				var ol_li = document.createElement("li");
+				//设置class值
+				ol_li.setAttribute("class","ol_li list-group-item");
+				paper_count.appendChild(ol_li);
+			}
+
+			//添加题目
+			createH6s();
+
+			//添加选项容器
+			createOl_li_ol();
+
+			
+
+			//添加选项
+			createOl_li_ol_form_li();
+
+			//添加选项内容
+			// addLable_content();
+
+			// setform_li_class();
+			
+
+		}
+		function createH6s(){
+			//题目内容添加
+			var ol_li_items = document.getElementsByClassName('ol_li')
+			for(var i = 0 ; i < ol_li_items.length ; i++){
+				//创建h6
+				var h6s = document.createElement("h6");
+				h6s.innerHTML = "第" + (i+1) + "题：" + ItemsArray_S["questionArray"][i];
+				ol_li_items[i].appendChild(h6s);
+			}
+		}
+		function createOl_li_ol(){
+			//获取容器所需数量，就是几个题目就添加几个ol
+			var ol_li_items = document.getElementsByClassName('ol_li');
+			for(var j = 0 ; j < ol_li_items.length ; j++){
+				var ol_li_ol_form = document.createElement("form");
+				ol_li_ol_form.setAttribute("class","ol_li_ol_form list-group");
+				var ol_li_ol = document.createElement("ol");
+				ol_li_ol.appendChild(ol_li_ol_form);
+				ol_li_items[j].appendChild(ol_li_ol);
+			}
+		}
+		function setform_li_class(n){
+			var ol_li_ol_form = document.getElementsByTagName("form");
+
+			// if(n == 4){
+
+			// }
+			var one_counts = ItemsArray_S["answerItemsArray"][0].length / 4;
+			var more_counts = one_counts + ItemsArray_S["answerItemsArray"][1].length / 4;
+			var judge_counts = more_counts + ItemsArray_S["answerItemsArray"][2].length / 2;
+			var self_mind_counts = judge_counts + ItemsArray_S["answerItemsArray"][3].length;
+
+
+			console.log(ItemsArray_S["h4sTypeArray"].length);
+			console.log(ItemsArray_S["questionArray"].length);
+			console.log(ol_li_ol_form.length);
+			for(var i = 0 ; i < ol_li_ol_form.length ; i++){
+
+				ol_li_ol_form[i].setAttribute("name","ol_li_ol_form" + i);
+			}
+			
+		}
+		function createOl_li_ol_form_li(){
+			console.log(ItemsArray_S["answerItemsArray"]);
+			var start0 = 0;
+			// var one_counts = ItemsArray_S["answerItemsArray"][0].length / 4;
+			// var more_counts = one_counts + ItemsArray_S["answerItemsArray"][1].length / 4;
+			// var judge_counts = more_counts + ItemsArray_S["answerItemsArray"][2].length / 2;
+			// var self_mind_counts = judge_counts + ItemsArray_S["answerItemsArray"][3].length;
+
+			// 每一类题型的结束位置
+			console.log(one_counts);
+			console.log(more_counts);
+			console.log(judge_counts);
+			console.log(self_mind_counts);
+			if(ItemsArray_S["answerItemsArray"].length == 1){
+				var one_counts = ItemsArray_S["answerItemsArray"][0].length / 4;
+				startCreate(start0,one_counts,4,"input","radio");
+				addLable_content(start0,one_counts);
+
+				setform_li_class(1);
+			}
+			else if(ItemsArray_S["answerItemsArray"].length == 2){
+				var one_counts = ItemsArray_S["answerItemsArray"][0].length / 4;
+				var more_counts = one_counts + ItemsArray_S["answerItemsArray"][1].length / 4;
+
+				startCreate(start0,one_counts,4,"input","radio");
+				startCreate(one_counts,more_counts,4,"input","checkbox");
+
+				addLable_content(start0,one_counts);
+				addLable_content(one_counts,more_counts,judge_counts);
+
+				setform_li_class(2);
+			}
+			else if(ItemsArray_S["answerItemsArray"].length == 3) {
+				var one_counts = ItemsArray_S["answerItemsArray"][0].length / 4;
+				var more_counts = one_counts + ItemsArray_S["answerItemsArray"][1].length / 4;
+				var judge_counts = more_counts + ItemsArray_S["answerItemsArray"][2].length / 2;
+
+				startCreate(start0,one_counts,4,"input","radio");
+				startCreate(one_counts,more_counts,4,"input","checkbox");
+				startCreate(more_counts,judge_counts,2,"input","radio");
+
+				addLable_content(start0,one_counts);
+				addLable_content(one_counts,more_counts,judge_counts);
+				addLable_content(more_counts,judge_counts);
+
+				setform_li_class(3);
+			}
+			else{
+
+				var one_counts = ItemsArray_S["answerItemsArray"][0].length / 4;
+				var more_counts = one_counts + ItemsArray_S["answerItemsArray"][1].length / 4;
+				var judge_counts = more_counts + ItemsArray_S["answerItemsArray"][2].length / 2;
+				var self_mind_counts = judge_counts + ItemsArray_S["answerItemsArray"][3].length;
+
+				startCreate(start0,one_counts,4,"input","radio");
+				startCreate(one_counts,more_counts,4,"input","checkbox");
+				startCreate(more_counts,judge_counts,2,"input","radio");
+				startCreate(judge_counts,self_mind_counts,1,"textarea","");
+
+				addLable_content(start0,one_counts);
+				addLable_content(one_counts,more_counts);
+				addLable_content(more_counts,judge_counts);
+				addLable_content(judge_counts,self_mind_counts);
+
+				setform_li_class(4);
+			}
+
+			function startCreate(typestart,typeend,typecount,inputtype,type){
+				/* 三个参数：typestart	typeend		typecount	inputtype	type
+				 *		typestart
+				 *			每种题型开始的位置
+				 *		typeend
+				 *			每种题型的结束位置
+				 *		typecount
+				 *			每种题型的数目，如单选有4个选项、判断有2个、主观题1个
+				 *		inputtype
+				 *			用于设置题型类型如input、textarea
+				 *		type
+				 *			用于设置input类型，如单选、多选
+				 */
+				for(var j = typestart ; j < typeend ; j++){
+					var ol_li_ol_form_items = document.getElementsByClassName('ol_li_ol_form');
+					for(var k = 0 ; k < ol_li_ol_form_items.length ; k++){
+						if(ol_li_ol_form_items[j].length < typecount){
+
+							console.log("1111-----");
+							// 获取选项循环值
+							getlabel_content(j);
+
+							var ol_li_ol_form_li = document.createElement("li");
+							ol_li_ol_form_li.setAttribute("class","ol_li_ol_form_li list-group-item");
+							var ol_li_ol_form_li_label = document.createElement("label");
+							var ol_li_ol_form_li_label_span = document.createElement("span");
+							var ol_li_ol_form_li_label_input = document.createElement(inputtype);
+							//判断选项类型
+							if(inputtype == "textarea"){
+								ol_li_ol_form_li_label_input.setAttribute("class","textarea" + k);
+								ol_li_ol_form_li_label_input.setAttribute("cols","100");
+								ol_li_ol_form_li_label_input.setAttribute("rows","5");
+								ol_li_ol_form_li_label_input.setAttribute("class","textarea");
+								ol_li_ol_form_li_label_input.placeholder = "";
+							}
+							else{
+								ol_li_ol_form_li_label_input.setAttribute("type",type);
+								// ol_li_ol_form_li_label_input.placeholder = "输入";
+								console.log("444444");
+							}
+							ol_li_ol_form_li_label.appendChild(ol_li_ol_form_li_label_input);
+							ol_li_ol_form_li_label.appendChild(ol_li_ol_form_li_label_span);
+							ol_li_ol_form_li.appendChild(ol_li_ol_form_li_label);
+							ol_li_ol_form_items[j].appendChild(ol_li_ol_form_li);
+						}
+					}
+				}
+			}
+		}
+
+		var j_list = "";
+		function getlabel_content(j){
+			j = "" + j;
+			j_list = j_list + j;
+			console.log(j_list);
+		}
+		console.log(j_list.length + "vvv");
+	
+
+		//设置主观题的回答区域
+		function setSelf_mind(){
+			var self_mind_i = document.getElementsByClassName('')
+		}
+
+		//添加交卷按钮
+		var container = document.getElementsByClassName('container')[0];
+		var div_btn = document.createElement("div");
+		div_btn.setAttribute("class","text-center");
+		container.appendChild(div_btn);
+		var submitBtn = document.createElement("button");
+		submitBtn.innerHTML = "提 交";
+		submitBtn.setAttribute("class","btn btn-primary");
+		submitBtn.setAttribute("onclick","getScorse()");
+		div_btn.appendChild(submitBtn);
+
+
+
+		function addLable_content(typestart,typeend){
+			// console.log(j_list);
+			// console.log(typestart);
+			// console.log(typeend);
+			//选项数组个数
+			var ol_li_ol_form_li_label_items = new Array();
+			var count_item_number = 0;
+			for(var i = 0 ; i < ItemsArray_S["answerItemsArray"].length; i++){
+				for(var j = 0 ; j < ItemsArray_S["answerItemsArray"][i].length ; j++){
+					ol_li_ol_form_li_label_items += ItemsArray_S["answerItemsArray"][i][j];
+				}
+			}
+			var h6s = document.getElementsByTagName('h6');
+			for(var j = typestart ; j < typeend ; j++){
+				console.log("------第--" + (j + 1) + "--次-----");
+				console.log(j_list.length + "vvv");
+				var new_j_list;
+				new_j_list = j_list.match(/\d+/g);
+				console.log(new_j_list);
+				for(var i = 0 ; i < new_j_list[0].length ; i++){
+						console.log("------------1");
+					if (j == new_j_list[0][i]) {
+						console.log("------------0");
+						console.log("------------0   " + j_list[i]);
+						var span_items = document.getElementsByTagName('span');
+						span_items[i].previousSibling.setAttribute("name","input" + j);
+						span_items[i].innerText = ol_li_ol_form_li_label_items[i];
+					}
+				}
+			}
+		}
+
+		function getScorse(){
+
+			// 分数
+			var score = 0;
+			
+			// 答案
+			var answerList = new Array();
+			var h6s = document.getElementsByTagName('h6');
+			for(var k = 0 ; k < h6s.length ; k++){
+				answerList[k] = k % 4; 
+			}
+			for(var i = 0 ; i < h6s.length ; i++ ){
+				var titles = "input" + i;
+				var titlesItem = document.getElementsByName(titles);
+				for(var j = 0 ; j < titlesItem.length ; j++){
+					if(titlesItem[j].checked && j == answerList[i]){
+						score += 100 / h6s.length;
+					}
+				}
+			}
+			alert("Your score is : " + score.toFixed(1));
+		}
+	</script>
+</body>
+</html>

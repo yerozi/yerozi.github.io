@@ -1,0 +1,105 @@
+﻿<html>
+<head>
+    <style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		img {
+			width: 75px;
+			margin-top: 10px;
+			margin-left: 3%;
+			margin-right: 3%;
+			float: left;
+		}
+		div {
+			width: 100%;
+		}
+		h1 {
+			height: 75px;
+			line-height: 75px;
+			margin-right: 15px;
+			float: left;
+		}
+		h3 {
+			height: 75px;
+			line-height: 85px;
+			float: left;
+		}
+		a {
+			text-decoration: none;
+		}
+		a:link,a:visited,a:active {
+			color: black;
+		}
+	/*	#account-login {
+			display: none;
+			background-color: #fff;
+			width: 50px;
+			height: 25px;
+			margin-top: 25px;
+			margin-right: 7%;
+			float: right;
+			border: 0px;
+		}*/
+
+		#account-exit {
+			background-color: #fff;
+			width: 150px;
+			height: 25px;
+			margin-top: 15px;
+			margin-right: 7%;
+			float: right;
+			border: 0px;
+			/*transition: 0.2s;*/
+		}
+		#account-exit:hover,#account-login:hover {
+			background-color: #7ebc59;
+		}
+
+		#user {
+			width: 150px;
+			text-align: center;
+			position: absolute;
+			top: 38px;
+			right: 7%;
+		}
+
+		#user:before {
+			content: "Welcome ";
+		}
+		#user:after {
+			content: "  !";
+		}
+	</style>
+</head>
+<body>
+    <!-- <img src="../image/logov2.0.png"> -->
+    <img src="../image/logo.png">
+    <div>
+    	<!-- 跳转默认页面 -->
+        <a href="index-default.html" target="rightFrame"> 
+            <h1>快点在线考试系统</h1>
+            <h3>( HURRY UP ONLINE EXAM SYSTEM )</h3>
+        </a>
+    </div>
+
+	<span id="user"></span>
+<!-- 跳转到登录界面 -->
+  <!--   <button id="account-login" onclick="drump(this);" type="button">登录</button> -->
+    <button id="account-exit" onclick="drump(this);" type="button">退出</button>
+</body>
+
+<script>
+	var buttons = document.getElementsByTagName('button');
+	for(var i=0; i<buttons.length; i++){
+		buttons[i].onclick = function(){
+			// top.location.href = '../login2.0.html';
+			top.location.href = '../login2.0.html';
+		}
+	}
+	document.getElementById('user').innerHTML = localStorage.getItem("userName");
+</script>
+
+
+</html>

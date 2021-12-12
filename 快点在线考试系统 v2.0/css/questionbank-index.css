@@ -1,0 +1,128 @@
+/* 功能栏 */
+body {
+	background-color: #fff;
+}
+
+/* 1 */
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+.question_bank_1 {
+	height: 30px;
+	line-height: 30px;
+	float: right;
+}
+.question_bank_1 li {
+	display: block;
+	margin-right: 5px;
+	height: 30px;
+	list-style: none;
+	float: left;
+}
+.question_bank_1 li form {
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+}
+.question_bank_1 li form select {
+	border: 0;
+	margin-left: 5px;
+	background-color: #F5F7FA;
+}
+.question_bank_1 li label {
+	float: left;
+	margin-left: 15px;
+}
+.question_bank_1 li label input {
+	width: 100%;
+	height: 26px;
+	border-right: 0px;
+	border-top: 2px solid #90a9c6;
+	border-left: 2px solid #90a9c6;
+	border-bottom: 2px solid #90a9c6;
+	box-sizing: border-box;
+	padding-left: 5px;
+	margin-top: 2px;
+	float: left;
+	line-height: 26px;
+}
+.question_bank_1 li button {
+	width: 32px;
+	height: 26px;
+	border: 2px solid #90a9c6;
+}
+.question_bank_1 li label input:focus {
+	outline: 0px;
+}
+.question_bank_1 li button:hover{
+	border: 2px solid #eb5651;
+}
+
+/* 2 */
+.question_bank_2 {
+	height: 30px;
+	line-height: 28px;
+	float: left;
+	background-color: #efefef;
+}
+.question_bank_2 li {
+	display: block;
+	margin-right: 0px;
+	height: 28px;
+	list-style: none;
+	float: right;
+}
+
+.question_bank_2 li button {
+	width: 75px;
+	height: 28px;
+	border: 0px;
+	transition: 0.3s;
+}
+.question_bank_2 li button:hover{
+	background-color: #90a9c6;
+	font-weight: 900;
+	font-size: 14px;
+}
+
+
+/* 题库的样式 */
+
+.question_bank_TK {
+	width: 99.9%;
+	background-color: #D0DFE6;
+}
+.question_bank_TK tr {
+	height: 35px;
+}
+.question_bank_TK tr th {
+	border: 1px solid #90a9c6;
+}
+.question_bank_TK tr th,.question_bank_TK tr td {
+	text-align: center;
+	vertical-align: middle;
+}
+.question_bank_TK {
+	border-collapse: collapse;  
+}
+.question_bank_TK tr td {
+	text-align: center;
+	border:1px solid #90a9c6;   
+}
+tr:hover {
+	background-color: #F5F7FA;		
+}
+
+#addSure {
+	display: block;
+	position: relative;
+	margin: 0px auto;
+	margin-top: 15px;
+	width: 100px;
+	height: 27px;
+	background-color: #efefef;
+	border: 1px solid #303841;
+	border-radius: 5px;
+}
