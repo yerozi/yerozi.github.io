@@ -1,0 +1,155 @@
+	<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<script type="text/javascript" src="./js/userInfoList.js"></script>
+	<script type="text/javascript" src="js/userInfoList.js"></script>
+</head>
+<body>
+	<div id="backLogin"><a href="javascript:;" onclick="loginIndex();">登录</a></div>
+	<div class="bg">
+		<div>
+			<img src="image/logo.png">
+			<span class="h2">快点在线考试系统</span>
+			<form id="loginMod" method="POST" autocomplete="off">
+				<div id="users">
+					<?xml version="1.0" encoding="UTF-8"?>
+					<svg width="20" height="15" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<circle cx="24" cy="12" r="8" fill="none" stroke="#000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M42 44C42 34.0589 33.9411 26 24 26C14.0589 26 6 34.0589 6 44" stroke="#000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+					<label>
+						<span>账号</span>
+						<input type="text" name="user" value="" autofocus="autofocus">
+					</label>
+				</div>
+
+
+				<div class="clean-both"></div>
+
+				<div id="psd">
+					<?xml version="1.0" encoding="UTF-8"?>
+					<svg width="20" height="15" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect width="48" height="48" fill="white" fill-opacity="0.01"/><rect width="48" height="48" fill="white" fill-opacity="0.01"/><path d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" fill="none" stroke="#000" stroke-width="4" stroke-linejoin="round"/><path fill-rule="evenodd" clip-rule="evenodd" d="M15 19C16.3807 19 17.5 17.8807 17.5 16.5C17.5 15.1193 16.3807 14 15 14C13.6193 14 12.5 15.1193 12.5 16.5C12.5 17.8807 13.6193 19 15 19Z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M15 27C16.3807 27 17.5 25.8807 17.5 24.5C17.5 23.1193 16.3807 22 15 22C13.6193 22 12.5 23.1193 12.5 24.5C12.5 25.8807 13.6193 27 15 27Z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M24 19C25.3807 19 26.5 17.8807 26.5 16.5C26.5 15.1193 25.3807 14 24 14C22.6193 14 21.5 15.1193 21.5 16.5C21.5 17.8807 22.6193 19 24 19Z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M24 27C25.3807 27 26.5 25.8807 26.5 24.5C26.5 23.1193 25.3807 22 24 22C22.6193 22 21.5 23.1193 21.5 24.5C21.5 25.8807 22.6193 27 24 27Z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M33 19C34.3807 19 35.5 17.8807 35.5 16.5C35.5 15.1193 34.3807 14 33 14C31.6193 14 30.5 15.1193 30.5 16.5C30.5 17.8807 31.6193 19 33 19Z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M33 27C34.3807 27 35.5 25.8807 35.5 24.5C35.5 23.1193 34.3807 22 33 22C31.6193 22 30.5 23.1193 30.5 24.5C30.5 25.8807 31.6193 27 33 27Z" fill="#000"/><path d="M17 33H31" stroke="#000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					<label>
+						<span>密码</span>
+						<input type="password" name="psd" value="" >
+					</label>
+				<br>
+					<button type="button" onclick="ifLogin();showulists();" >
+						登&nbsp;&nbsp;录
+					</button>
+
+				</div>
+			</form>
+
+		</div>
+		<div class="clean-both"></div>
+		<div class="forget_psd">
+			<a href="javascript:;" onclick="wxblock(this);">微信登录</a>
+			<a onclick="show2mod();" href="./html/forget+sign.html" target="modIfram">忘记密码？</a>
+			<!-- <a onclick="show2mod();" href="./html/forget+sign.html" target="modIfram">注册</a> -->
+		</div>
+	<span id="copyright">版权信息：@2021 快点在线考试系统 </span>
+	</div>
+
+	<!-- 微信登录 -->
+	<img id="wxLogin" src="image/weixinLogin1.png">
+	
+
+	<iframe onmousemove="wxblock();" src="./html/forget+sign.html" name="modIfram" width="770px" height="500px"></iframe>
+
+
+	<!-- js代码 -->
+	<script>
+		var userlists;
+		// 讲Object类型的数据转换成String类型，然后存入Storage
+		localStorage.setItem("us",JSON.stringify(this.userlists));
+
+		// 获取用户数据
+		var ulists = localStorage.getItem("us");
+		// 讲数据类型为String的数据转换成Object类型的数据
+		ulists = JSON.parse(ulists);
+
+
+
+
+
+
+		var user = document.getElementsByName('user')[0];
+		var psd = document.getElementsByName('psd')[0];
+
+
+		function ifLogin(){
+			var userName = user.value;		//获取用户输入账号
+			var userPsd = psd.value;		//获取用户输入的密码
+			if (judgeAccountExist(userName,userPsd)) {
+				localStorage.setItem("userid",userName);
+				//如果要使用这个 Object.location.href 函数，那么这个 button 的 type 属性需要设置为 button
+				this.location.href="./html/index.html";
+			}
+			else {
+				alert("用户名或者密码错误！");
+				alert("账号：100000\n" + "密码：root \n" + "或者：100001-100010  密码：123456");
+			}
+		}
+
+
+		function judgeAccountExist(usersId,userPsd){
+			for (var i = 0 ; i < ulists.user.length ; i++){
+				if (usersId == ulists.user[i]["userId"]){
+					if (userPsd == ulists.user[i]["psd"]){
+						localStorage.setItem("userName",ulists.user[i]["userName"]);
+						return true;
+					}
+				}
+			}
+		}
+
+
+		var login_Forget_Sign = document.getElementsByTagName('iframe')[0];
+		var login_index = document.getElementsByClassName('bg')[0];
+		var backLoginBtn = document.getElementById('backLogin');
+		backLoginBtn.firstChild.style.display = "none";
+		login_Forget_Sign.style.display = "none";
+		function show2mod(){
+			login_index.style.display = "none";
+			login_Forget_Sign.style.display = "block";
+			backLoginBtn.firstChild.style.display = "block";
+			wxnone();
+		}
+		function loginIndex(){
+			login_index.style.display = "block";
+			login_Forget_Sign.style.display = "none";
+			backLoginBtn.firstChild.style.display = "none";
+
+			// 获取用户数据
+			ulists = localStorage.getItem("us");
+			// 讲数据类型为String的数据转换成Object类型的数据
+			ulists = JSON.parse(ulists);
+			console.log(ulists.user[4]["psd"]);
+		}
+
+		var imgs = document.getElementById('wxLogin');
+		console.log(login_Forget_Sign);
+		imgs.style.display = "none";
+		var flag_wx = 1;
+		function wxblock(event){
+			imgs.style.display = "block";
+			if (flag_wx % 2 == 0) {
+				imgs.style.display = "none";
+			}
+			flag_wx += 1;
+		}
+		function wxnone(){
+			imgs.style.display = "none";
+		}
+
+
+		
+
+
+	</script>
+</body>
+</html>
